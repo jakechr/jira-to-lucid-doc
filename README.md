@@ -8,7 +8,7 @@ This script can be used to view completed work by an individual in a calendar ye
 ## Setup
 ### 1. Jira Authentication:
 * Ensure you have appropriate access to the Jira instance.
-* Provide the necessary authentication details (username and API token) in the `.env` file.
+* Provide the necessary authentication details (username, domain, and API token) in the `.env` file.
 
 ### 2. Lucid API Setup:
 * [Obtain API credentials](https://developer.lucid.co/rest-api/v1/#using-oauth2) (OAuth 2.0 token) from the [Lucid Developer Console](https://developer.lucid.co/guides/#unlocking-developer-tools).
