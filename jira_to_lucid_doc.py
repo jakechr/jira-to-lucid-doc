@@ -33,8 +33,9 @@ def get_jira_issues(email, year, args):
   start = 0
   max_results = 50
   total_returned = max_results
+  total = -1
   
-  while total_returned == max_results:
+  while total_returned == max_results and start != total:
   
     query = {
       "jql": f"""assignee = '{email}' 
@@ -55,12 +56,13 @@ def get_jira_issues(email, year, args):
   
     data = json.loads(response.text)
     
+    total = data['total']
     total_returned = len(data['issues'])
     start += total_returned
     
     issues += data['issues']
     
-    print(f"{start} of {data['total']} issues received from Jira")
+    print(f"{start} of {total} issues received from Jira")
   
 
   # sort based on earliest to latest completed
@@ -269,6 +271,7 @@ def send_lucid_import_request(email, year, product):
   }
   
   response = requests.post(url = url, headers = headers, data = data, files = files)
+  cleanup()
   response.raise_for_status()
   return response.json()
   
@@ -295,4 +298,3 @@ load_dotenv()
 args = parse_args()
 response_json = create_lucid_board(args)
 print(f"Access the new document at: {response_json['editUrl']}")
-cleanup()
