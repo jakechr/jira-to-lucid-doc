@@ -231,7 +231,7 @@ def generate_json_file(issues):
             "style": "solid"
           }
         },
-        "text": f"{issue['fields']['summary']}",
+        "text": f"{issue['key']}: {issue['fields']['summary']}",
       }
       
       data["pages"][0]["shapes"].append(shape)
