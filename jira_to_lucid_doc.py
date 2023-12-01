@@ -11,7 +11,7 @@ import zipfile
 def create_lucid_board(args):
   email = input("Enter the email of your Jira user: ")
   year = int(input("Enter the year you want the Jira history for: "))
-  product = input("What Lucid product would you like to import this document into? (lucidchart/lucidspark)")
+  product = input("What Lucid product would you like to import this document into? (lucidchart/lucidspark): ")
   
   issues = get_jira_issues(email, year, args)
   generate_json_file(issues)
@@ -20,7 +20,7 @@ def create_lucid_board(args):
   
 def get_jira_issues(email, year, args):
   print("Fetching issues from Jira...")
-  url = f"https://{os.getenv('JIRA_DOMAIN')}.atlassian.net/rest/api/3/search"
+  url = f"https://{os.getenv('JIRA_SUBDOMAIN')}.atlassian.net/rest/api/3/search"
  
   auth = HTTPBasicAuth(os.getenv("JIRA_AUTH_EMAIL"), os.getenv("JIRA_API_KEY"))
  
