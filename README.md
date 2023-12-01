@@ -5,10 +5,20 @@ This script can be used to view completed work by an individual in a calendar ye
 ## Prerequisites
 * Python 3.x installed on your system
 
+### Required Python Modules
+
+Before running the script, ensure you have the following Python modules installed:
+* `dotenv`: Use `pip` to install the `dotenv` package
+* `requests`: Use `pip` to install`requests` package
+```
+pip install python-dotenv
+pip install requests
+```
+
 ## Setup
 ### 1. Jira Authentication:
 * Ensure you have appropriate access to the Jira instance.
-* Provide the necessary authentication details (username, domain, and API token) in the `.env` file.
+* Provide the necessary authentication details (email, domain, and API token) in the `.env` file.
 
 ### 2. Lucid API Setup:
 * [Obtain API credentials](https://developer.lucid.co/rest-api/v1/#using-oauth2) (OAuth 2.0 token) from the [Lucid Developer Console](https://developer.lucid.co/guides/#unlocking-developer-tools).
@@ -18,7 +28,7 @@ This script can be used to view completed work by an individual in a calendar ye
 ## Usage
 ### 1. Run the Script:
 * Execute the Python script jira_to_lucid_doc.py.
-* Provide the Jira username and year for which you want to fetch issues along with which Lucid product you want to import the document into (`lucidchart` or `lucidspark`).
+* Provide the Jira username (doesn't have to be the same as the auth email) and year for which you want to fetch issues along with which Lucid product you want to import the document into (`lucidchart` or `lucidspark`).
 
 ### 2. Process Overview:
 * The script will connect to Jira using the provided credentials and fetch all issues associated with the specified user.
@@ -30,7 +40,7 @@ This script can be used to view completed work by an individual in a calendar ye
 * Use the Lucid interface to further analyze and manage these issues conveniently.
 
 ## Configuration and Environment Variables
-This script requires specific environment variables to be set in a `.env`` file within the project directory. Create a .env file with the following variables:
+This script requires specific environment variables to be set in a `.env` file within the project directory. Create a .env file with the following variables:
 
 * #### JIRA_API_KEY: API key or token for Jira authentication.
 * #### JIRA_AUTH_EMAIL: Email associated with the Jira account.
