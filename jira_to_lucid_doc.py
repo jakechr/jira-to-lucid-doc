@@ -53,6 +53,7 @@ def get_jira_issues(email, year, args):
         params=query,
         auth=auth
     )
+    response.raise_for_status()
   
     data = json.loads(response.text)
     
