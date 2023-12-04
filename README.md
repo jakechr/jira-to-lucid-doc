@@ -18,17 +18,17 @@ pip install requests
 ## Setup
 ### 1. Jira Authentication:
 * Ensure you have appropriate access to the Jira instance.
-* Provide the necessary authentication details (email, domain, and API token) in the `.env` file. You should be able to see your current API tokens [here](https://id.atlassian.com/manage-profile/security/api-tokens).
+* Provide the necessary authentication details (email, domain, and API token) in the `.env` file. You should be able to see your current Jira API tokens [here](https://id.atlassian.com/manage-profile/security/api-tokens).
 
 ### 2. Lucid API Setup:
 * [Obtain API credentials](https://developer.lucid.co/rest-api/v1/#using-oauth2) (OAuth 2.0 token) from the [Lucid Developer Console](https://developer.lucid.co/guides/#unlocking-developer-tools).
-* Set up the script with the token in the `.env` file to authenticate and access Lucid.
+* Put your valid OAuth 2.0 token in the `.env` file to authenticate and access Lucid.
 * Note: The API credential is the generated OAuth 2.0 token that is valid for 1 hour from generation. You will need to generate a new token each time you use this script.
 
 ## Usage
 ### 1. Run the Script:
 * Execute the Python script jira_to_lucid_doc.py.
-* Provide the Jira username (doesn't have to be the same as the auth email) and year for which you want to fetch issues along with which Lucid product you want to import the document into (`lucidchart` or `lucidspark`).
+* Provide the Jira email (doesn't have to be the same as the auth email), year for which you want to fetch issues, and Lucid product you want to import the document into (`lucidchart` or `lucidspark`).
 
 ### 2. Process Overview:
 * The script will connect to Jira using the provided credentials and fetch all issues associated with the specified user.
@@ -49,11 +49,11 @@ This script requires specific environment variables to be set in a `.env` file w
 
 ### Obtaining Required Credentials:
 #### Jira API Key:
-* Generate an API token or key from your Jira account settings. This token will be used as the `JIRA_API_KEY`.
+* Generate an API token or key from your Jira [account settings](https://id.atlassian.com/manage-profile/security/api-tokens). This token will be used as the `JIRA_API_KEY`.
 #### Jira Authentication Email:
 * Use the email address associated with your Jira account as the `JIRA_AUTH_EMAIL`.
 #### Lucid OAuth2 Token:
-* Obtain an OAuth2 token by creating an OAuth2 app in your Lucid Developer Console. Use the generated token as `LUCID_OAUTH2_TOKEN`.
+* Obtain an OAuth 2.0 token by creating an OAuth 2.0 app in your [Lucid Developer Console](https://developer.lucid.co/guides/#oauth-2-0-client-creation). Use the generated token as `LUCID_OAUTH2_TOKEN`.
 #### Jira Subdomain:
 * Identify and specify the subdomain of your Jira instance's URL. For instance, if your Jira URL is `https://yourcompany.atlassian.net`, the subdomain is `yourcompany`. Use the subdomain as `JIRA_SUBDOMAIN`.
 
@@ -61,8 +61,8 @@ This script requires specific environment variables to be set in a `.env` file w
 ```
 JIRA_API_KEY="your_jira_api_key"
 JIRA_AUTH_EMAIL="your_email@example.com"
-LUCID_OAUTH2_TOKEN=your_lucid_oauth2_token
-JIRA_SUBDOMAIN=your_jira_subdomain
+LUCID_OAUTH2_TOKEN="your_lucid_oauth2_token"
+JIRA_SUBDOMAIN="your_jira_subdomain"
 ```
 ### Command Line Flags
 The script includes the following flags:
