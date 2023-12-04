@@ -232,7 +232,7 @@ def generate_json_file(issues):
             "style": "solid"
           }
         },
-        "text": f"{issue['key']}: {issue['fields']['summary']}",
+        "text": f"<a href='https://{os.getenv('JIRA_SUBDOMAIN')}.atlassian.net/browse/{issue['key']}'>{issue['key']}</a>: {issue['fields']['summary']}",
       }
       
       data["pages"][0]["shapes"].append(shape)
