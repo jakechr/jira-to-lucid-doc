@@ -18,7 +18,7 @@ pip install requests
 ## Setup
 ### 1. Jira Authentication:
 * Ensure you have appropriate access to the Jira instance.
-* Provide the necessary authentication details (email, domain, and API token) in the `.env` file.
+* Provide the necessary authentication details (email, domain, and API token) in the `.env` file. You should be able to see your current API tokens [here](https://id.atlassian.com/manage-profile/security/api-tokens).
 
 ### 2. Lucid API Setup:
 * [Obtain API credentials](https://developer.lucid.co/rest-api/v1/#using-oauth2) (OAuth 2.0 token) from the [Lucid Developer Console](https://developer.lucid.co/guides/#unlocking-developer-tools).
@@ -59,8 +59,8 @@ This script requires specific environment variables to be set in a `.env` file w
 
 ### Example .env file:
 ```
-JIRA_API_KEY=your_jira_api_key
-JIRA_AUTH_EMAIL=your_email@example.com
+JIRA_API_KEY="your_jira_api_key"
+JIRA_AUTH_EMAIL="your_email@example.com"
 LUCID_OAUTH2_TOKEN=your_lucid_oauth2_token
 JIRA_SUBDOMAIN=your_jira_subdomain
 ```
