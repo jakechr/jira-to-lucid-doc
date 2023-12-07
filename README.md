@@ -2,6 +2,9 @@
 This Python script allows you to retrieve completed issues from Jira associated with a specific user and organizes them into a Lucid document based on quarterly categorization.
 This script can be used to view completed work by an individual in a calendar year. Also, each shape representing a Jira issue has a link back to the source issue on Jira.
 
+## Example Lucid Document Screenshot
+![image](https://github.com/jakechr/jira-to-lucid-doc/assets/73912850/57aa7755-ce09-4a0f-84ac-9dddc836217a)
+
 ## Prerequisites
 * Python 3.x installed on your system
 
