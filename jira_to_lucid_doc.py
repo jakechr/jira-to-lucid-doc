@@ -148,7 +148,7 @@ def generate_json_file(issues):
       "x": 0,
       "y": 0,
       "w": 1280,
-      "h": 155 # This will get replaced with the max individual lane height later
+      "h": 1200 # This will get replaced with the max lane height later
     },
     "style": {
         "fill": {
@@ -238,7 +238,7 @@ def generate_json_file(issues):
       j += 1
     i += 1
   
-  data["pages"][0]["shapes"][0]["boundingBox"]["h"] = max_y + 105
+  data["pages"][0]["shapes"][0]["boundingBox"]["h"] = max_y + 100 # the extra 100 pixels allows room for the title bar and bottom padding
   
   with open('document.json', 'w') as json_file:
     # Convert the dictionary to a JSON string
