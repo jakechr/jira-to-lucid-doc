@@ -131,7 +131,6 @@ def save_parsed_issues_to_csv(issues, year, email):
 def generate_json_file(issues):
   data = {
     "version": 1,
-    "rules": [],
     "collections": [],
     "pages": [
       {
