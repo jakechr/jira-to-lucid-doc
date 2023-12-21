@@ -120,7 +120,7 @@ def generate_json_file(issues: Dict[str, List[Dict[str, Any]]]) -> None:
       
       shape = {
         "id": f"{issue['key']}",
-        "type": "rectangle",
+        "type": "stickyNote",
         "boundingBox": {
           "x": x,
           "y": y,

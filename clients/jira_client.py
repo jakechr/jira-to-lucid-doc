@@ -1,11 +1,11 @@
 from argparse import Namespace
 from datetime import datetime
+from requests import request
 from requests.auth import HTTPBasicAuth
 from typing import List, Dict, Any
-import file_utils
+from utils.file_utils import save_raw_issues_to_json, save_parsed_issues_to_csv
 import json
 import os
-import requests
 
 
 def get_jira_issues(email: str, year: int) -> List[Dict[str, Any]]:
@@ -36,7 +36,7 @@ def get_jira_issues(email: str, year: int) -> List[Dict[str, Any]]:
       "maxResults": f"{max_results}"
     }
   
-    response = requests.request(
+    response = request(
         "GET",
         url,
         headers=headers,
@@ -85,8 +85,8 @@ def sort_issues_by_quarter(issues: List[Dict[str, Any]], year: int, email: str, 
       issues_by_quarter['Q4'].append(issue)
     
   if args.debug:
-    file_utils.save_raw_issues_to_json(issues, year, email)
-    file_utils.save_parsed_issues_to_csv(issues_by_quarter, year, email)
+    save_raw_issues_to_json(issues, year, email)
+    save_parsed_issues_to_csv(issues_by_quarter, year, email)
     
   return issues_by_quarter
 
